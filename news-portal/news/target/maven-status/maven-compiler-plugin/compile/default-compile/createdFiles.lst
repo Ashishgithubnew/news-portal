@@ -1,0 +1,9 @@
+com\news\Controller\CustomFormController.class
+com\news\Entity\CustomFormEntity.class
+com\news\Entity\BaseEntity.class
+com\news\ServiceImpl\CustomFormServiceImpl.class
+com\news\Dto\CustomFormDetailsDto.class
+com\news\NewsApplication.class
+com\news\Service\CustomFormService.class
+com\news\Controller\TestingController.class
+com\news\Repo\CustomFormRepo.class
