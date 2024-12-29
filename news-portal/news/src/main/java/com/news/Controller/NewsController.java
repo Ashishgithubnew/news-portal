@@ -19,7 +19,7 @@ public class NewsController {
 
     @GetMapping("/news")
     public List<Map<String, Object>> getNews(@RequestParam(value = "category", required = false) String category) {
-        return newsService.fetchNews();
+        return newsService.fetchNews(category);
     }
 }
 
