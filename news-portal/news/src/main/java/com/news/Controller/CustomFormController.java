@@ -16,7 +16,7 @@ public class CustomFormController {
     CustomFormService customFormService;
 
     @PostMapping("/save")
-    public String saveCustomNews(@RequestParam(required = false ) MultipartFile image, @RequestParam String cato,
+    public String saveCustomNews(@RequestParam(required = false)  MultipartFile image, @RequestParam String cato,
                                  @RequestParam String tittle, @RequestParam String desc){
         return customFormService.saveCustomFormData(image, cato, tittle, desc);
     }

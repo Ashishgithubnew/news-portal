@@ -31,11 +31,11 @@ public class CustomFormServiceImpl implements CustomFormService {
         customFormEntity.setTittle(tittle);
         customFormEntity.setDesc(desc);
 
-        try {
-            customFormEntity.setImage(image.getBytes());
-        } catch (IOException e) {
-            return "Failed to save image: " + e.getMessage();
-        }
+//        try {
+//            customFormEntity.setImage(image.getBytes());
+//        } catch (IOException e) {
+//            return "Failed to save image: " + e.getMessage();
+//        }
         customFormRepo.save(customFormEntity);
 
         return "Saved successfully";
