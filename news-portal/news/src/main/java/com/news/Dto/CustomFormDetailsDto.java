@@ -11,6 +11,15 @@ public class CustomFormDetailsDto {
     public String cato;
     public String tittle;
     public String desc;
+    public String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public UUID getId() {
         return id;

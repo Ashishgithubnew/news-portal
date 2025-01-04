@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Base64;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -46,6 +48,21 @@ public class CustomFormServiceImpl implements CustomFormService {
         updateCustomService(saveCustomNew, id);
         customFormRepo.save(saveCustomNew);
         return "saved successfully";
+    }
+
+    @Override
+    @Transactional
+    public CustomFormDetailsDto getData() {
+        List<CustomFormEntity> entity = customFormRepo.getNews();
+
+        CustomFormDetailsDto dto = new CustomFormDetailsDto();
+        dto.setCato(entity.get(0).getCato());
+        dto.setTittle(entity.get(0).getTittle());
+        dto.setDesc(entity.get(0).getDesc());
+
+        dto.setImage("https://akm-img-a-in.tosshub.com/aajtak/images/story/202501/67777918cc47d-bpsc-protest-update-034346969-16x9.jpg");
+
+        return dto;
     }
 
     void updateCustomService(CustomFormEntity customFormEntity , CustomFormDetailsDto details){

@@ -9,4 +9,5 @@ public interface CustomFormService {
                                String tittle,  String desc);
 
     String updateCustomService(CustomFormDetailsDto id);
+    CustomFormDetailsDto getData();
 }
