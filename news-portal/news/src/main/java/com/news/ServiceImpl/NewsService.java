@@ -19,9 +19,9 @@ public class NewsService {
         RestTemplate restTemplate = new RestTemplate();
         String url;
         if(StringUtils.isEmpty(category)){
-            url = String.format("%s?apikey=%s&country=in&language=hi", BASE_NEWS_API_URL, API_KEY);
+            url = String.format("%s?apikey=%s", BASE_NEWS_API_URL, API_KEY);
         }else {
-            url = String.format("%s?apikey=%s&country=in&category=%s&language=hi", BASE_NEWS_API_URL, API_KEY, category);
+            url = String.format("%s?apikey=%s&category=%s&language=hi", BASE_NEWS_API_URL, API_KEY, category);
         }
 
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
