@@ -58,6 +58,7 @@ public class CustomFormServiceImpl implements CustomFormService {
         List<CustomFormDetailsDto> dtos = new ArrayList<>();
         for(CustomFormEntity customFormEntity :entity) {
             CustomFormDetailsDto dto = new CustomFormDetailsDto();
+            dto.setId(customFormEntity.getId());
             dto.setCato(customFormEntity.getCato());
             dto.setTittle(customFormEntity.getTittle());
             dto.setDesc(customFormEntity.getDesc());
