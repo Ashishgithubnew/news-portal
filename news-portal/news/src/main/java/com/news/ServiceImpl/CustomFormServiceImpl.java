@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
@@ -52,17 +53,19 @@ public class CustomFormServiceImpl implements CustomFormService {
 
     @Override
     @Transactional
-    public CustomFormDetailsDto getData() {
+    public List<CustomFormDetailsDto> getData() {
         List<CustomFormEntity> entity = customFormRepo.getNews();
+        List<CustomFormDetailsDto> dtos = new ArrayList<>();
+        for(CustomFormEntity customFormEntity :entity) {
+            CustomFormDetailsDto dto = new CustomFormDetailsDto();
+            dto.setCato(customFormEntity.getCato());
+            dto.setTittle(customFormEntity.getTittle());
+            dto.setDesc(customFormEntity.getDesc());
 
-        CustomFormDetailsDto dto = new CustomFormDetailsDto();
-        dto.setCato(entity.get(0).getCato());
-        dto.setTittle(entity.get(0).getTittle());
-        dto.setDesc(entity.get(0).getDesc());
-
-        dto.setImage("https://akm-img-a-in.tosshub.com/aajtak/images/story/202501/67777918cc47d-bpsc-protest-update-034346969-16x9.jpg");
-
-        return dto;
+            dto.setImage("https://akm-img-a-in.tosshub.com/aajtak/images/story/202501/67777918cc47d-bpsc-protest-update-034346969-16x9.jpg");
+            dtos.add(dto);
+        }
+        return dtos;
     }
 
     void updateCustomService(CustomFormEntity customFormEntity , CustomFormDetailsDto details){
