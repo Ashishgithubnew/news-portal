@@ -69,6 +69,12 @@ public class CustomFormServiceImpl implements CustomFormService {
         return dtos;
     }
 
+    @Override
+    public String delete(UUID id) {
+        customFormRepo.deleteById(id);
+        return "deleted successfully";
+    }
+
     void updateCustomService(CustomFormEntity customFormEntity , CustomFormDetailsDto details){
         customFormEntity.setTittle(details.getTittle());
         customFormEntity.setDesc(details.getDesc());

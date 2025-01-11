@@ -12,8 +12,7 @@ import java.time.ZoneId;
 import java.util.UUID;
 
 @MappedSuperclass
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseEntity {
@@ -26,4 +25,19 @@ public class BaseEntity {
 
     private LocalDateTime creationDateTime = LocalDateTime.now();
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getCreationDateTime() {
+        return creationDateTime;
+    }
+
+    public void setCreationDateTime(LocalDateTime creationDateTime) {
+        this.creationDateTime = creationDateTime;
+    }
 }

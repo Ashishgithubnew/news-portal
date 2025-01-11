@@ -32,4 +32,8 @@ public class CustomFormController {
         return customFormService.getData();
 
     }
+    @PostMapping("/delete")
+    public String delete(@RequestParam UUID id){
+        return customFormService.delete(id);
+    }
 }
