@@ -23,8 +23,8 @@ public class CustomFormController {
     }
 
     @PostMapping("/edit")
-    public String updateCustomNews(@RequestBody CustomFormDetailsDto id, @RequestParam("image") MultipartFile image){
-        return customFormService.updateCustomService(id);
+    public String updateCustomNews(@RequestBody CustomFormDetailsDto id){
+        return customFormService.updateCustomService(id); //@RequestParam("image") MultipartFile image
     }
 
     @GetMapping("/getNews")
