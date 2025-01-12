@@ -3,6 +3,7 @@ package com.news.ServiceImpl;
 import com.news.Dto.SignUpDto;
 import com.news.Entity.UserEntity;
 import com.news.Repo.UserRepo;
+import com.news.Security.BadRequestException;
 import com.news.Service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class SignUpServiceImpl implements SignUpService {
     public String login(String email, String password) {
         UserEntity savedData =  infoRepo.getLoginCheck(email,password);
         if (ObjectUtils.isEmpty(savedData)){
-            return "no user found";
+            throw new BadRequestException("no user found");
         } else {
             return "login successfully";
         }
