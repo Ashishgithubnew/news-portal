@@ -10,6 +10,16 @@ public class ContactUsEntity extends BaseEntity{
     private String contact;
     private String remarks;
 
+    private Boolean isRead;
+
+    public Boolean getRead() {
+        return isRead;
+    }
+
+    public void setRead(Boolean read) {
+        isRead = read;
+    }
+
     public String getUsername() {
         return username;
     }

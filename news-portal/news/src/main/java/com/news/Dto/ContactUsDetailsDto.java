@@ -3,8 +3,21 @@ package com.news.Dto;
 import jakarta.persistence.Column;
 import lombok.Data;
 
+import java.util.UUID;
+
 
 public class ContactUsDetailsDto {
+
+    public UUID id;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public String username;
     public String email;
     public String contact;
