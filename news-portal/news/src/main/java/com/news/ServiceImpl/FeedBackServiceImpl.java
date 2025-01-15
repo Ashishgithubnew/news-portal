@@ -42,6 +42,7 @@ public class FeedBackServiceImpl implements FeedBackService {
            dto.setFeedback(feedBackEntity.getFeedback());
            dto.setName(feedBackEntity.getName());
            dto.setId(feedBackEntity.getId());
+           dto.setDate(feedBackEntity.getCreationDateTime());
            dtos.add(dto);
         }
         return dtos;

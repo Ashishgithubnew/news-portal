@@ -2,6 +2,7 @@ package com.news.Dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 
@@ -12,6 +13,15 @@ public class FeedBackDto {
     public String feedback;
 
     public UUID id;
+    public LocalDateTime date;
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
     public UUID getId() {
         return id;
