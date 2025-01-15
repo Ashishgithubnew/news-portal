@@ -9,6 +9,9 @@ public class FeedBackEntity extends BaseEntity{
     private String name;
     private String email;
 
+    @Column(name = "feedBack", columnDefinition = "text")
+    private String feedback;
+
     public String getName() {
         return name;
     }
@@ -25,14 +28,11 @@ public class FeedBackEntity extends BaseEntity{
         this.email = email;
     }
 
-    public String getFeedback(String feedback) {
-        return this.feedback;
+    public String getFeedback() {
+        return feedback;
     }
 
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
-
-    @Column(name = "feedBack", columnDefinition = "text")
-    private String feedback;
 }

@@ -39,7 +39,7 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
     public List<ContactUsDetailsDto> findAllService(boolean isRead) {
         List<ContactUsEntity> contactUsEntities;
 
-        if (isRead) {
+        if (!isRead) {
             contactUsEntities = contactUsRepo.findAll();
         } else {
             contactUsEntities = contactUsRepo.isRead();

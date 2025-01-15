@@ -7,6 +7,8 @@ import com.news.Service.FeedBackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FeedBackServiceImpl implements FeedBackService {
     @Autowired
@@ -16,10 +18,16 @@ public class FeedBackServiceImpl implements FeedBackService {
         FeedBackEntity entity = new FeedBackEntity();
         entity.setName(dto.getName());
         entity.setEmail(dto.getEmail());
-        entity.getFeedback(dto.getFeedback());
+        entity.setFeedback(dto.getFeedback());
 
         feedBackRepo.save(entity);
 
         return "Save Successfully";
+    }
+
+    @Override
+    public List<FeedBackDto> getAllFeedBack() {
+
+        return null;
     }
 }
