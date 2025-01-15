@@ -10,7 +10,7 @@ public class ContactUsEntity extends BaseEntity{
     private String contact;
     private String remarks;
 
-    private Boolean isRead;
+    private Boolean isRead = false;
 
     public Boolean getRead() {
         return isRead;

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/contactUs")
@@ -20,8 +21,14 @@ public class ContactUsController {
     }
 
     @GetMapping("/findAll")
-    public List<ContactUsDetailsDto> findAll(){
-        return contactUsDetailsService.findAllService();
+    public List<ContactUsDetailsDto> findAll(@RequestParam(required = false) boolean isRead){
+        return contactUsDetailsService.findAllService(isRead);
+    }
+
+    @PostMapping("/edit")
+    public String editContactUs(@RequestParam UUID id , @RequestParam Boolean isRead){
+        return contactUsDetailsService.editContactUs(id,isRead);
+
     }
 }
 

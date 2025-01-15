@@ -24,6 +24,15 @@ public class ContactUsDetailsDto {
 
     @Column(columnDefinition = "Text")
     public String remarks;
+    public boolean isRead;
+
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
+    }
 
     public String getUsername() {
         return username;

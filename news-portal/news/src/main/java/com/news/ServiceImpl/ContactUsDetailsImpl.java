@@ -11,6 +11,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ContactUsDetailsImpl implements ContactUsDetailsService {
@@ -31,12 +32,18 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
         entity.setContact(dto.getContact());
         entity.setUsername(dto.getUsername());
         entity.setRemarks(dto.getRemarks());
+        entity.setRead(false);
     }
 
     @Override
-    public List<ContactUsDetailsDto> findAllService() {
+    public List<ContactUsDetailsDto> findAllService(boolean isRead) {
+        List<ContactUsEntity> contactUsEntities;
 
-        List<ContactUsEntity> contactUsEntities = contactUsRepo.findAll();
+        if (isRead) {
+            contactUsEntities = contactUsRepo.findAll();
+        } else {
+            contactUsEntities = contactUsRepo.isRead();
+        }
 
         if (ObjectUtils.isEmpty(contactUsEntities)) {
             throw new BadRequestException("No data found");
@@ -50,9 +57,21 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
             dto.setEmail(entity.getEmail());
             dto.setRemarks(entity.getRemarks());
             dto.setUsername(entity.getUsername());
+            dto.setRead(dto.isRead());
             dtos.add(dto);
         }
         return dtos;
+    }
+
+    @Override
+    public String editContactUs(UUID id, Boolean isRead) {
+        ContactUsEntity Entity = contactUsRepo.getById(id);
+        if (ObjectUtils.isEmpty(Entity)) {
+            throw new BadRequestException("No record found");
+        }
+        Entity.setRead(isRead);
+        contactUsRepo.save(Entity);
+        return "Updated successfully";
     }
 }
 
