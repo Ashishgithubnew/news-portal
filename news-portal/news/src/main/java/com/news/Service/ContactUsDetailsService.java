@@ -13,4 +13,6 @@ public interface ContactUsDetailsService {
 
 
     String editContactUs(UUID id, Boolean isRead);
+
+    String deleteContactUs(UUID id);
 }

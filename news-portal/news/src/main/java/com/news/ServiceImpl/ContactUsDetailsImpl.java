@@ -74,5 +74,11 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
         contactUsRepo.save(Entity);
         return "Updated successfully";
     }
+
+    @Override
+    public String deleteContactUs(UUID id) {
+        contactUsRepo.deleteById(id);
+        return "deleted successfully";
+    }
 }
 

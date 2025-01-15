@@ -30,5 +30,10 @@ public class ContactUsController {
         return contactUsDetailsService.editContactUs(id,isRead);
 
     }
+
+    @PostMapping("/delete")
+    public String deleteContactUs(@RequestParam UUID id){
+        return contactUsDetailsService.deleteContactUs(id);
+    }
 }
 
