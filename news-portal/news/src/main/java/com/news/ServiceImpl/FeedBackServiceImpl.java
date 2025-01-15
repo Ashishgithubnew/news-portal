@@ -1,5 +1,6 @@
 package com.news.ServiceImpl;
 
+import com.news.Dto.CustomFormDetailsDto;
 import com.news.Dto.FeedBackDto;
 import com.news.Entity.FeedBackEntity;
 import com.news.Repo.FeedBackRepo;
@@ -7,6 +8,7 @@ import com.news.Service.FeedBackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,7 +29,16 @@ public class FeedBackServiceImpl implements FeedBackService {
 
     @Override
     public List<FeedBackDto> getAllFeedBack() {
+        List<FeedBackEntity> entities = feedBackRepo.findAll();
+        List<FeedBackDto> dtos = new ArrayList<>();
+        for (FeedBackEntity  feedBackEntity:entities){
+           FeedBackDto dto = new FeedBackDto();
+           dto.setEmail(feedBackEntity.getEmail());
+           dto.setFeedback(feedBackEntity.getFeedback());
+           dto.setName(feedBackEntity.getName());
 
-        return null;
+           dtos.add(dto);
+        }
+        return dtos;
     }
 }
