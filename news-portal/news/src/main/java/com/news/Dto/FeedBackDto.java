@@ -2,12 +2,24 @@ package com.news.Dto;
 
 import lombok.Data;
 
+import java.util.UUID;
+
 
 public class FeedBackDto {
 
     public String name;
     public String email;
     public String feedback;
+
+    public UUID id;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

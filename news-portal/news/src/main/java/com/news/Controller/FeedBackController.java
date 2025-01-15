@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/feedBack")
@@ -22,6 +23,10 @@ public class FeedBackController {
     public List<FeedBackDto> getFeedBack(){
         return feedBackService.getAllFeedBack();
 
+    }
 
+    @PostMapping("/delete")
+    public String deleteFeedBack(@RequestParam UUID id){
+        return feedBackService.deleteFeedBack(id);
     }
 }

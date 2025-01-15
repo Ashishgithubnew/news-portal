@@ -3,6 +3,8 @@ package com.news.Entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import java.util.UUID;
+
 
 @Entity
 public class FeedBackEntity extends BaseEntity{
@@ -11,6 +13,18 @@ public class FeedBackEntity extends BaseEntity{
 
     @Column(name = "feedBack", columnDefinition = "text")
     private String feedback;
+
+    private UUID id;
+
+    @Override
+    public UUID getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
