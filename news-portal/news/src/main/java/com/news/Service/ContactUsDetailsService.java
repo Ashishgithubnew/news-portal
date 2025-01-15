@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface ContactUsDetailsService {
     String saveService(ContactUsDetailsDto dto);
 
-    List<ContactUsDetailsDto> findAllService(boolean isRead);
+    List<ContactUsDetailsDto> findAllService(String isRead);
 
 
 

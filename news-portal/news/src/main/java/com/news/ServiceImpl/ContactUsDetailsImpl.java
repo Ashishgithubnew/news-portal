@@ -5,6 +5,7 @@ import com.news.Entity.ContactUsEntity;
 import com.news.Repo.ContactUsRepo;
 import com.news.Security.BadRequestException;
 import com.news.Service.ContactUsDetailsService;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -36,10 +37,10 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
     }
 
     @Override
-    public List<ContactUsDetailsDto> findAllService(boolean isRead) {
+    public List<ContactUsDetailsDto> findAllService(String isRead) {
         List<ContactUsEntity> contactUsEntities;
 
-        if (!isRead) {
+        if (!StringUtils.isNotEmpty(isRead) || isRead.equalsIgnoreCase("false")) {
             contactUsEntities = contactUsRepo.findAll();
         } else {
             contactUsEntities = contactUsRepo.isRead();

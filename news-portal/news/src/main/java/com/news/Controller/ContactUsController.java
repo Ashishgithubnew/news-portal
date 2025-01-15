@@ -21,7 +21,7 @@ public class ContactUsController {
     }
 
     @GetMapping("/findAll")
-    public List<ContactUsDetailsDto> findAll(@RequestParam(required = false) boolean isRead){
+    public List<ContactUsDetailsDto> findAll(@RequestParam(required = false) String isRead){
         return contactUsDetailsService.findAllService(isRead);
     }
 
