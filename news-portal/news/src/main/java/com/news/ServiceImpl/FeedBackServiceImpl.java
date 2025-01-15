@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -42,7 +44,8 @@ public class FeedBackServiceImpl implements FeedBackService {
            dto.setFeedback(feedBackEntity.getFeedback());
            dto.setName(feedBackEntity.getName());
            dto.setId(feedBackEntity.getId());
-           dto.setDate(feedBackEntity.getCreationDateTime());
+            dto.setDate(feedBackEntity.getCreationDateTime()
+                    .format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
            dtos.add(dto);
         }
         return dtos;

@@ -13,13 +13,13 @@ public class FeedBackDto {
     public String feedback;
 
     public UUID id;
-    public LocalDateTime date;
+    public String date;
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
