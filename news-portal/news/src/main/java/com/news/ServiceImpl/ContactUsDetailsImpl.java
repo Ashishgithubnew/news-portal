@@ -58,7 +58,8 @@ public class ContactUsDetailsImpl implements ContactUsDetailsService {
             dto.setEmail(entity.getEmail());
             dto.setRemarks(entity.getRemarks());
             dto.setUsername(entity.getUsername());
-            dto.setRead(true);
+            dto.setRead(!entity.getRead().toString().equalsIgnoreCase("true"));
+
             dtos.add(dto);
         }
         return dtos;
